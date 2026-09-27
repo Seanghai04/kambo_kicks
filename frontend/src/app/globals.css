@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+:root {
+  --kk-ink: #121417;
+  --kk-slate: #2c323b;
+  --kk-paper: #e9eaee;
+  --kk-chalk: #f7f7f9;
+  --kk-line: #d3d6dd;
+  --kk-mute: #6d7582;
+  --kk-kick: #ff5c2e;
+  --kk-kick-soft: #ffe8e0;
+  --kk-ok: #1f7a5c;
+  --kk-info: #2f5f8a;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #111;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #111;
+}
+
+/* Auth dual forms (login + register) — brand palette */
+.auth-field {
+  width: 100%;
+  border: 1px solid var(--kk-line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--kk-ink);
+  padding: 0.8rem 0.95rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.auth-field::placeholder {
+  color: #b0b5bd;
+}
+
+.auth-field:focus {
+  border-color: var(--kk-ink);
+}
+
+.auth-input {
+  width: 100%;
+  border: 1px solid var(--kk-line);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--kk-ink);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.auth-input:focus {
+  border-color: var(--kk-ink);
+}
+
+.auth-btn {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background: var(--kk-kick);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.8rem 1.25rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.auth-btn:hover {
+  opacity: 0.9;
+}
+
+.auth-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Kambo-Kicks admin floor console */
+.kk-admin {
+  --kk-ink: #121417;
+  --kk-slate: #2c323b;
+  --kk-paper: #e9eaee;
+  --kk-chalk: #f7f7f9;
+  --kk-line: #d3d6dd;
+  --kk-mute: #6d7582;
+  --kk-kick: #ff5c2e;
+  --kk-kick-soft: #ffe8e0;
+  --kk-ok: #1f7a5c;
+  --kk-info: #2f5f8a;
+  color: var(--kk-ink);
+  background:
+    linear-gradient(135deg, rgba(18, 20, 23, 0.03) 0%, transparent 42%),
+    repeating-linear-gradient(
+      -18deg,
+      transparent,
+      transparent 11px,
+      rgba(18, 20, 23, 0.02) 11px,
+      rgba(18, 20, 23, 0.02) 12px
+    ),
+    var(--kk-paper);
+}
+
+.kk-admin-input {
+  width: 100%;
+  border: 1px solid var(--kk-line);
+  background: #fff;
+  color: var(--kk-ink);
+  border-radius: 4px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.kk-admin-input:focus {
+  border-color: var(--kk-ink);
+}
+
+.kk-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--kk-ink);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.7rem 1.15rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.kk-admin-btn:hover {
+  background: var(--kk-kick);
+}
+
+.kk-admin-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--kk-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--kk-line);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.kk-admin-btn-ghost:hover {
+  border-color: var(--kk-ink);
+}
+
+@keyframes kk-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kk-draw {
+  from {
+    stroke-dashoffset: 480;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes kk-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.kk-rise {
+  animation: kk-rise 0.55s ease both;
+}
+
+.kk-rise-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.kk-rise-delay-2 {
+  animation-delay: 0.16s;
+}
+
+.kk-rise-delay-3 {
+  animation-delay: 0.24s;
+}
+
+.kk-chart-line {
+  stroke-dasharray: 480;
+  animation: kk-draw 1.1s ease forwards;
+}
+
+.kk-pipeline-fill {
+  transform-origin: left center;
+  animation: kk-bar 0.7s ease both;
+}

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+backend/vendor/
+frontend/node_modules/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+backend/.env
+frontend/.env.local
+backend/.env.pgsql.snippet
+
+# Build / cache
+.next/
+dist/
+backend/bootstrap/cache/*.php
+!backend/bootstrap/cache/.gitignore
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+!backend/storage/logs/.gitignore
+!backend/storage/framework/**/.gitignore
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Docker / local
+*.sqlite

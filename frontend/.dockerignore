@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+README.md
+*.md
+*.tsbuildinfo
+public/videos/*.MOV
+public/videos/*.mov
