@@ -8,12 +8,31 @@ import type { Product } from '@/types';
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+
     api
       .get('/products')
-      .then((res) => setProducts(res.data.products.slice(0, 4)))
-      .catch(() => setProducts([]));
+      .then((res) => {
+        if (cancelled) return;
+        setProducts((res.data.products as Product[]).slice(0, 4));
+        setError(false);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setProducts([]);
+        setError(true);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
@@ -71,8 +90,21 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {products.length === 0 ? (
+        {loading ? (
           <p className="text-gray-500">Loading…</p>
+        ) : error ? (
+          <p className="text-gray-500">
+            Could not load products.{' '}
+            <button
+              type="button"
+              className="underline"
+              onClick={() => window.location.reload()}
+            >
+              Retry
+            </button>
+          </p>
+        ) : products.length === 0 ? (
+          <p className="text-gray-500">No products yet.</p>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) => (
